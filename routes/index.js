@@ -24,7 +24,6 @@ router.post('/', async (req, res, next) => {
         response = await operations.insertOne({context: search.context, searchNumber: 1})
     }
     res.send(response)
-    next()
 })
 
 module.exports = router

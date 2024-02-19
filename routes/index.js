@@ -15,6 +15,7 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res, next) => {
     const search = req.body
     let response
+
     const responseFind = await operations
         .findOne({context: search.context})
     if (responseFind) {
@@ -23,6 +24,7 @@ router.post('/', async (req, res, next) => {
     } else {
         response = await operations.insertOne({context: search.context, searchNumber: 1})
     }
+    
     res.send(response)
 })
 
